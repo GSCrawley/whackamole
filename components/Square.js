@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Stylesheet } from 'react-native'
+import { View, StyleSheet } from 'react-native'
 
 const Square = () => {
 
@@ -8,7 +8,7 @@ const Square = () => {
     )
 }
 
-const styles = Stylesheet.create({
+const styles = StyleSheet.create({
     square: {
         flex: 1,
         minWidth: 80,
