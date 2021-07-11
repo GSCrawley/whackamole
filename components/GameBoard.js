@@ -1,10 +1,12 @@
 import React, {useEffect, useState} from 'react' 
 import { StyleSheet, Text, View } from 'react-native'
 import Square from './Square.js'
+import { connect } from 'react-redux'
 
 
-const GameBoard = () => {
-    const [timeLeft, setTimeLeft] = useState(30)
+
+const GameBoard = (props) => {
+    const [timeLeft, setTimeLeft] = useState(20)
 
     useEffect(() => {
         if(!timeLeft) return
@@ -55,4 +57,9 @@ const styles = StyleSheet.create({
   
   });
 
-  export default GameBoard
+  const mapStateToProps = state => {
+      return {
+          score: state.score
+      }
+  }
+  export default connect(mapStateToProps)(GameBoard)
