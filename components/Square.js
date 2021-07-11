@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
-import { Text, View, StyleSheet } from 'react-native'
+import { Text, View, StyleSheet, TouchableOpacity, Image } from 'react-native'
 import { connect } from 'react-redux'
+import { addScore } from './../redux'
 
 
 const Square = (props) => {
@@ -15,17 +16,22 @@ const Square = (props) => {
             setMoleActive(true)
             setTimeout(() => {setMoleActive(false)},800)
         }, randomTime)
-        setTimeout(endGame, 20 * 1000)
+        setTimeout(endGame, 60 * 1000)
     }, [])
     
     function endGame() {
         clearInterval(timerId)
         setGameOver(true)
     }
+
     return (
-        <View style={moleActive? styles.mole : styles.square}>
-            {isGameOver && <Text style={{fontSize:40, justifyContent:'space-around'}}> X </Text>}
-            </View>
+        <TouchableOpacity onPress={moleActive? props.addScore : null}>
+            <Image 
+            source={moleActive? require('../assets/mole.png'): require('../assets/hole.png')} 
+            style={moleActive? styles.mole : styles.square}>
+            </Image>
+        </TouchableOpacity>
+
     )
 }
 
@@ -35,14 +41,22 @@ const styles = StyleSheet.create({
         minWidth: 80,
         minHeight: 80,
         margin: 10, 
-        backgroundColor: 'violet',
+        backgroundColor: '#9BF89C',
+        width: '100%'
+
     },
     mole: {
         flex: 1,
         minWidth: 80,
         minHeight: 80,
         margin: 10, 
-        backgroundColor: 'yellow',
+        backgroundColor:'#9BF89C',
+        width: '100%'
+    },
+    x: {
+        fontWeight: 'bold',
+        fontSize: 65,
+        textAlign: 'center',
     }
 })
 

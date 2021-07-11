@@ -5,7 +5,9 @@ import store from './redux/store'
 
 export default function App() {
   return (
-    <GameBoard/>
+    <Provider store={store}>
+      <GameBoard/>
+    </Provider>
   );
 }
 
