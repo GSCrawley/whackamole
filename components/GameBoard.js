@@ -13,7 +13,7 @@ const GameBoard = (props) => {
         const timerId = setInterval(() => {
             //happens every 1000ms
             setTimeLeft(timeLeft -1)
-        },1000)
+        },800)
         return () => clearInterval(timerId)
     }, [timeLeft])
     

@@ -16,7 +16,7 @@ const Square = (props) => {
             setMoleActive(true)
             setTimeout(() => {setMoleActive(false)},900)
         }, randomTime)
-        setTimeout(endGame, 60 * 1000)
+        setTimeout(endGame, 10 * 0)
     }, [])
     
     function endGame() {
@@ -27,7 +27,7 @@ const Square = (props) => {
     return (
         <TouchableOpacity onPress={moleActive? props.addScore : null}>
             <Image 
-            source={moleActive? require('../assets/GinaHole.png'): require('../assets/hole.png')} 
+            source={moleActive? require('../assets/JoeInAHole.png'): require('../assets/hole.png')} 
             style={moleActive? styles.mole : styles.square}>
             </Image>
         </TouchableOpacity>
