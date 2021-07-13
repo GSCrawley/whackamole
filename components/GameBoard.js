@@ -2,14 +2,17 @@ import React, {useEffect, useState} from 'react'
 import { StyleSheet, Text, View, ImageBackground  } from 'react-native'
 import Square from './Square.js'
 import { connect } from 'react-redux'
-
-
+import { create } from 'domain';
 
 const GameBoard = (props) => {
     const [timeLeft, setTimeLeft] = useState(60)
+    const [gameOver, setGameOver] = useState(false)
 
     useEffect(() => {
-        if(!timeLeft) return
+        if(!timeLeft)  { 
+            setGameOver(true)
+            return
+        }
         const timerId = setInterval(() => {
             //happens every 1000ms
             setTimeLeft(timeLeft -1)
@@ -26,18 +29,18 @@ const GameBoard = (props) => {
         <Text>You have {timeLeft} seconds left</Text>
         <Text>{props.score} Moles whacked!</Text>
         <View style={styles.game}>
-        <Square></Square>
-        <Square></Square>
-        <Square></Square>
-        <Square></Square>
-        <Square></Square>
-        <Square></Square>
-        <Square></Square>
-        <Square></Square>
-        <Square></Square>
-        <Square></Square>
-        <Square></Square>
-        <Square></Square>
+        <Square gameOver={gameOver}/>
+        <Square gameOver={gameOver}/>        
+        <Square gameOver={gameOver}/>        
+        <Square gameOver={gameOver}/>  
+        <Square gameOver={gameOver}/>  
+        <Square gameOver={gameOver}/>          
+        <Square gameOver={gameOver}/>  
+        <Square gameOver={gameOver}/>  
+        <Square gameOver={gameOver}/>  
+        <Square gameOver={gameOver}/>  
+        <Square gameOver={gameOver}/>  
+        <Square gameOver={gameOver}/>  
         </View>
       </ImageBackground>
 
