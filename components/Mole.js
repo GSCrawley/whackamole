@@ -6,19 +6,22 @@ import { Avatar, Button, ThemeProvider } from 'react-native-elements';
 import { SwitchScreenNavigator, HomeStackNavigator, GameTabNavigator } from './AppNav'
 
 
-export default function Mole(props) {
-  const Gid = require('../assets/Gid.jpg'),
-  const Trump = require('../assets/Donald.jpg'),
-  const Mitch = require('../assets/Mitch.jpeg'),
-  const Matt = require('../assets/Matt.jpeg'),
+const moles = {
+  gid: require('../assets/Gid.jpg'),
+  trump: require('../assets/Donald.jpg'),
+  mitch:  require('../assets/Mitch.jpeg'),
+  matt: require('../assets/Matt.jpeg')
+}
+
   
+export default function Mole(props) {
     return (
         <SafeAreaProvider>
           
           <Avatar 
             size='large'
             rounded
-            source={props.imageUri}
+            source={ props.moles }
               title="GC"
               onPress={() => console.log("Works!")}
               activeOpacity={0.2}
