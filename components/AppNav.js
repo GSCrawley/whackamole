@@ -1,13 +1,15 @@
 import { createStackNavigator, createSwitchNavigator, createBottomTabNavigator } from 'react-navigation';
+import MoleScreen from './MoleScreen'
+import GameBoard from './GameBoard'
 
 const Tab = createBottomTabNavigator
 
-const SwitchScreen = createSwitchNavigator({
+const SwitcScreenNavigator = createSwitchNavigator({
     routeOne: {Mole},
     routeTwo: GameBoard
 },
 {
-    initialRouteName: 'Moles',
+    initialRouteName: MoleScreen,
 }
 )
 
@@ -17,6 +19,8 @@ const HomeStackNavigator = createStackNavigator({
 
 const GameTabNavigator = createBottomTabNavigator({
     Home: HomeStack,
-    Moles: ScreenOne,
+    Moles: MoleScreen,
     WhackEm: ScreenTwo,
   });  
+  
+export default { SwitchScreenNavigator, HomeStackNavigator, GameTabNavigator }
