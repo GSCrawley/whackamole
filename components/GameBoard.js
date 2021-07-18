@@ -2,7 +2,6 @@ import React, {useEffect, useState} from 'react'
 import { StyleSheet, Text, View, ImageBackground  } from 'react-native'
 import Square from './Square.js'
 import { connect } from 'react-redux'
-// import { create } from 'domain';
 
 const GameBoard = (props) => {
     const [timeLeft, setTimeLeft] = useState(60)

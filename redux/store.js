@@ -1,6 +1,7 @@
 import { createStore } from 'redux'
-import scoreReducer from './reducer'
+import scoreReducer from './scoreReducer'
+import moleReducer from './moleReducer.js'
 
-const store = createStore(scoreReducer)
+const store = createStore(scoreReducer, moleReducer)
 
 export default store

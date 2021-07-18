@@ -1,8 +1,8 @@
 import React, { useEffect, useState, useRef } from 'react'
 import { Text, View, StyleSheet, TouchableOpacity, Image } from 'react-native'
 import { connect } from 'react-redux'
-import { addScore } from './../redux'
-import PlayMole from './PlayMole'
+import { addScore, addMole } from './../redux'
+
 
 
 function useInterval(callback, delay) {
@@ -48,7 +48,7 @@ const Square = (props) => {
     return (
         <TouchableOpacity onPress={moleActive? props.addScore : null}>
             <Image 
-            source={moleActive? {?? PlayMole.props?? } : require('../assets/hole.png')} 
+            source={moleActive? require('../assets/GinaHole.png') : require('../assets/hole.png')} 
             style={moleActive? styles.mole : styles.square}>
             </Image>
         </TouchableOpacity>

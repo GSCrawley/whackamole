@@ -1,7 +1,15 @@
-import { ADD_SCORE } from './actionTypes'
+import { ADD_SCORE, ADD_MOLE } from './actionTypes'
 
-export const addScore = () => {
+const addScore = () => {
     return {
         type: ADD_SCORE
     }
 }
+
+const addMole = () => {
+    return {
+        type: ADD_MOLE
+    }
+}
+
+export {addScore, addMole}

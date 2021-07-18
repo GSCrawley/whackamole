@@ -1,17 +1,36 @@
 import React from 'react';
-import GameBoard from './components/GameBoard'
-import { createBottomTabNavigator } from 'react-navigation';
+import GameBoard from './components/GameBoard';
+import MoleScreen from './components/MoleScreen';
+import { createBottomTabNavigator } from 'react-navigation-tabs';
 import { NavigationContainer } from '@react-navigation/native';
-import { Provider } from 'react-redux'
-import store from './redux/store'
+
+import { ionIcon } from  'react-native-vector-icons';
 
 const Tab = createBottomTabNavigator
 
 export default function App() {
   return (
-    <Provider store={store}>
-      <GameBoard/>
-    </Provider>
+    <NavigationContainer>
+      <Tab.Navigator
+        screenOptions={({ route }) => ({
+          tabBarIcon: ({ focused, color, size }) => {
+            let iconName;
+            if ( route.name === 'Home') {
+              iconName = focused
+              ? 'hammer-outline' : 'hammer'
+          } else if ( route.name === 'Moles') {
+              iconName = focused
+              ? 'body-outline' : 'body'
+            }
+            return <ionIcon name={iconName} size={size} color={color} />;
+          },
+        })}
+      > 
+        <Tab.Screen name="Home" component={GameBoard} />
+        <Tab.Screen name="Moles" component={MoleScreen} />
+
+      </Tab.Navigator>
+    </NavigationContainer>
   );
 }
 
