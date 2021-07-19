@@ -1,9 +1,10 @@
 import React, {useEffect, useState} from 'react' 
 import { StyleSheet, Text, View, ImageBackground  } from 'react-native'
 import Square from './Square.js'
-import { connect } from 'react-redux'
+import { connect, mapStateToProps } from 'react-redux'
+import ChooseMole from './ChooseMole'
 
-const GameBoard = (props) => {
+const GameBoard = (mapStateToProps) => {
     const [timeLeft, setTimeLeft] = useState(60)
     const [gameOver, setGameOver] = useState(false)
 
@@ -27,6 +28,8 @@ const GameBoard = (props) => {
         <Text style={styles.header}>Gid's Whackamole Game!</Text>
         <Text>You have {timeLeft} seconds left</Text>
         <Text>{props.score} Moles whacked!</Text>
+        <Text>You're whacking {props.mole}!</Text>
+
         <View style={styles.game}>
         <Square gameOver={gameOver}/>
         <Square gameOver={gameOver}/>        
@@ -70,9 +73,9 @@ const styles = StyleSheet.create({
 
   });
 
-  const mapStateToProps = state => {
+const mapStateToProps = state => {
       return {
-          score: state.score
+          score: state.score,
       }
   }
 

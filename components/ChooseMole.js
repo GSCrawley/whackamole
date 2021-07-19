@@ -1,6 +1,8 @@
 import React, {useEffect, useState, Component } from 'react' 
 import { View, Image, StyleSheet } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
+// import { addMole } from './../redux'
+import { connect, mapStateToProps } from 'react-redux'
 
 
 const styles = StyleSheet.create({
@@ -23,60 +25,78 @@ const styles = StyleSheet.create({
           marginTop: 100,
           color: 'purple'
       },
-      avatar: {
-
-      }
+    
   
     });
-    2
-const moles = (props) => {
-    Gid = moles.gid = require('../assets/Gid.jpg'),
-    Trump = moles.trump = require('../assets/Donald.jpg'),
-    Mitch = moles.mitch = require('../assets/Mitch.jpeg'),
-    Matt = moles.matt = require('../assets/Matt.jpeg'),
-    Rudy = moles.rudy = require('../assets/Rudy.jpeg')
+    
+const moles = {
+    Gid: {
+        source: 
+        require('../assets/Gid.jpg'),
+        game:
+        require('../assets/GinaHole.png')
+    },
+    Trump: {
+        source:
+        require('../assets/Donald.jpg'),
+        game:
+        require('../assets/TrumpInAHole.png')
+    },
+    Mitch: {
+        source:
+        require('../assets/Mitch.jpeg'),
+        game:
+        require('../assets/Mitch.png')
+    },
+    Matt: {
+        source:
+        require('../assets/Matt.jpeg'),
+        game:
+        require('../assets/MattInAHole.png')
+    },
+    Rudy: {
+        source: 
+        require('../assets/Rudy.jpeg'),
+        game:
+        require('../assets/RudyInAHole.png')
+    },  
   }
 
-const Moles = (props) => {
+const chooseMole = (props) => {
     return (
       <View style={styles.container}>
         <Image
-          style={styles.avatar}
-          source={require({Gid})}
+          source={Gid.source}
         />
         <Image
-          style={styles.avatar}
-          source={require({Trump})}
+          source={Trump.source}
         />
         <Image
-          style={styles.avatar}
-          source={require({Mitch})}
+          source={Mitch.source}
         />
         <Image
-          style={styles.avatar}
-          source={require({Matt})}
+          source={Matt.source}
         />
         <Image
-          style={styles.avatar}
-          source={require({Rudy})}
+          source={Rudy.source}
         />
-    
     </View>
     );
     }
 
-    const chooseMoles = () => {
-        return (
-            <SafeAreaProvider>
-              <Avatar>
-                size='large'
-                rounded
-                source={ Moles.props }
-                  onPress={() => navigation.navigate(Square(playMole)),
-                  activeOpacity='0.2'
-                }     
+const assignMole = (props) => {
+    return (
+        <SafeAreaProvider>
+            <Avatar>
+            size='large'
+            rounded
+            source={ moles.source }
+                onPress={() => navigation.navigate(Square(addMole)),
+                activeOpacity='0.2'
+            }     
                   </Avatar> 
                   </SafeAreaProvider>
             );
           }
-    }
+
+export default connect(mapStateToProps)(ChooseMole)
