@@ -1,8 +1,10 @@
 import React from 'react';
 import GameBoard from './components/GameBoard';
-import MoleScreen from './components/MoleScreen';
+import ChooseMole from './components/ChooseMole';
 import { createBottomTabNavigator } from 'react-navigation-tabs';
 import { NavigationContainer } from '@react-navigation/native';
+import 'react-native-gesture-handler';
+import AppNav from './components/AppNav'
 
 import { ionIcon } from  'react-native-vector-icons';
 
@@ -27,7 +29,7 @@ export default function App() {
         })}
       > 
         <Tab.Screen name="Home" component={GameBoard} />
-        <Tab.Screen name="Moles" component={MoleScreen} />
+        <Tab.Screen name="Moles" component={ChooseMole} />
 
       </Tab.Navigator>
     </NavigationContainer>

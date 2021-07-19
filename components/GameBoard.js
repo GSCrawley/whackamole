@@ -2,14 +2,13 @@ import React, {useEffect, useState, Component } from 'react'
 import { StyleSheet, Text, View,  Image, ImageBackground  } from 'react-native'
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { Avatar, Button, ThemeProvider } from 'react-native-elements';
-import { SwitchScreenNavigator, HomeStackNavigator, GameTabNavigator } from './AppNav'
-import { useNavigation } from '@react-navigation/native';
-import { moleReducer } from '../redux/moleReducer';
-import Square  from './Square.'
+import { GameTabNavigator } from './AppNav'
+// import { useNavigation } from '@react-navigation/native';
+import rootReducer from '../redux/rootReducer'
+import Square  from './Square'
 import { connect } from 'react-redux'
-import ChooseMole from './ChooseMole'
 
-const GameBoard = (mapStateToProps) => {
+function GameBoard() {
     const [timeLeft, setTimeLeft] = useState(60)
     const [gameOver, setGameOver] = useState(false)
 
@@ -85,3 +84,4 @@ const mapStateToProps = state => {
   }
 
 export default connect(mapStateToProps)(GameBoard)
+

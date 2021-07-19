@@ -1,24 +1,27 @@
-import { createStackNavigator, createSwitchNavigator, createBottomTabNavigator } from 'react-navigation-tabs';
+
+import { createBottomTabNavigator } from 'react-navigation-tabs';
+
 import GameBoard from './GameBoard'
-import MoleScreen from './MoleScreen'
+import ChooseMole from './ChooseMole'
 
-const SwitcScreenNavigator = createSwitchNavigator({
-    routeOne: MoleScreen,
-    routeTwo: GameBoard
-},
-{
-    initialRouteName: MoleScreen,
-}
-)
+// const Whacked = createSwitchNavigator({
+//     routeOne: ChooseMole,
+//     routeTwo: GameBoard
+// }
+// )
 
-const HomeStackNavigator = createStackNavigator({
-    Home: Welcome, Detail: GameBoard 
-  });
+// const WhackStack = createStackNavigator();
+
+// const Whacked = () => {
+//   return (
+//     <NavigationContainer>
+//     </NavigationContainer>
+//   )
+// }
 
 const GameTabNavigator = createBottomTabNavigator({
-    Home: Welcome,
-    Moles: MoleScreen,
-    WhackEm: GameBoard,
+    Home: GameBoard,
+    Moles: ChooseMole
   });  
   
-export default { SwitchScreenNavigator, HomeStackNavigator, GameTabNavigator }
+export default { GameTabNavigator }

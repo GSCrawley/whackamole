@@ -1,5 +1,5 @@
 import { createStore } from 'redux'
 
-const store = createStore(scoreReducer, moleReducer)
+const store = createStore(rootReducer)
 
 export default store

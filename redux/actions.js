@@ -8,7 +8,8 @@ const addScore = () => {
 
 const addMole = () => {
     return {
-        type: ADD_MOLE
+        type: ADD_MOLE,
+        payload: { mole }
     }
 }
 
