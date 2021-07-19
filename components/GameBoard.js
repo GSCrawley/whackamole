@@ -2,7 +2,7 @@ import React, {useEffect, useState, Component } from 'react'
 import { StyleSheet, Text, View,  Image, ImageBackground  } from 'react-native'
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { Avatar, Button, ThemeProvider } from 'react-native-elements';
-import { GameTabNavigator } from './AppNav'
+// import { GameTabNavigator } from './AppNav'
 // import { useNavigation } from '@react-navigation/native';
 import rootReducer from '../redux/rootReducer'
 import Square  from './Square'

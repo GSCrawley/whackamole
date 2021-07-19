@@ -1,8 +1,8 @@
 
 import { createBottomTabNavigator } from 'react-navigation-tabs';
 
-import GameBoard from './GameBoard'
-import ChooseMole from './ChooseMole'
+import GameBoard from '../components/GameBoard'
+import ChooseMole from '../components/ChooseMole'
 
 // const Whacked = createSwitchNavigator({
 //     routeOne: ChooseMole,
@@ -19,9 +19,9 @@ import ChooseMole from './ChooseMole'
 //   )
 // }
 
-const GameTabNavigator = createBottomTabNavigator({
-    Home: GameBoard,
-    Moles: ChooseMole
-  });  
+// const GameTabNavigator = createBottomTabNavigator({
+//     Home: GameBoard,
+//     Moles: ChooseMole,
+//   });  
   
-export default { GameTabNavigator }
+// export default { GameTabNavigator }

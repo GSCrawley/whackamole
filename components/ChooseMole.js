@@ -77,6 +77,7 @@ function ChooseMole() {
         source={require('../assets/background.png')}
         >
             <H1>{mole}</H1>
+        console.log({mole})
         <Text style={styles.header}>Gid's Whackamole Game!</Text>
       `<View style={styles.container}>
         <Image 
@@ -99,20 +100,5 @@ function ChooseMole() {
     </ImageBackground>
     );
     }
-
-// const assignMole = () => {
-//     return (
-//         <SafeAreaProvider>
-//             <Avatar
-//             size='large'
-//             rounded
-//             source={ moles.game }
-//                 onPress={() => dispatch(setName('Trump'))}
-//                 activeOpacity='0.2'/><
-//             }     
-              
-//                   </SafeAreaProvider>
-//             );
-//           }
 
 export default ChooseMole

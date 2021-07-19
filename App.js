@@ -4,7 +4,6 @@ import ChooseMole from './components/ChooseMole';
 import { createBottomTabNavigator } from 'react-navigation-tabs';
 import { NavigationContainer } from '@react-navigation/native';
 import 'react-native-gesture-handler';
-import AppNav from './components/AppNav'
 
 import { ionIcon } from  'react-native-vector-icons';
 
