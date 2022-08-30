@@ -1,6 +1,8 @@
 import { ADD_MOLE } from './actionTypes'
+import { moles } from './ChooseMole'
 
-const moleReducer = (state = null, action) => {
+
+const moleReducer = (state = mole, action) => {
     switch(action.type) {
         case ADD_MOLE: 
             return action.payload.mole

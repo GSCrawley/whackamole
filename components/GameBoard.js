@@ -1,15 +1,9 @@
-import React, {useEffect, useState, Component } from 'react' 
-import { StyleSheet, Text, View,  Image, ImageBackground  } from 'react-native'
-import { SafeAreaProvider } from 'react-native-safe-area-context';
-import { Avatar, Button, ThemeProvider } from 'react-native-elements';
-// import { GameTabNavigator } from './AppNav'
-// import { useNavigation } from '@react-navigation/native';
-import rootReducer from '../redux/rootReducer'
+import React, {useEffect, useState } from 'react' 
+import { StyleSheet, Text, View, ImageBackground  } from 'react-native'
 import Square  from './Square'
-import { connect } from 'react-redux'
 
-function GameBoard() {
-    const [timeLeft, setTimeLeft] = useState(60)
+const GameBoard = (route) => {
+  const [timeLeft, setTimeLeft] = useState(60)
     const [gameOver, setGameOver] = useState(false)
 
     useEffect(() => {
@@ -77,11 +71,5 @@ const styles = StyleSheet.create({
 
   });
 
-const mapStateToProps = state => {
-      return {
-          score: state.score,
-      }
-  }
-
-export default connect(mapStateToProps)(GameBoard)
+export default GameBoard
 

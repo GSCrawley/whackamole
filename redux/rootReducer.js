@@ -4,7 +4,10 @@ import moleReducer from "./moleReducer";
 
 const rootReducer = combineReducers({
     score: scoreReducer,
-    mole: moleReducer
+    mole: moleReducer,
+    nav: (state=(mole,score), action) => {
+return state;
+    }
 })
 
 export default rootReducer

@@ -1,9 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react'
-import { Text, View, StyleSheet, TouchableOpacity, Image } from 'react-native'
-import { connect } from 'react-redux'
-import { addScore } from './../redux'
-import { useNavigation } from '@react-navigation/native';
-import ChooseMole from './ChooseMole'
+import { StyleSheet, TouchableOpacity, Image } from 'react-native'
+import { useSelector } from 'react-redux'
 
 
 
@@ -28,9 +25,11 @@ function useInterval(callback, delay) {
 }
 
 
-const Square = (props) => {
+const Square = (props, route) => {
     const [moleActive, setMoleActive] = useState(false)
-
+    const mole = useSelector( (state) => { 
+       return state.mole
+    })
     useInterval(() => {
         // Is the mole visible?
         // If yes, hide it!
@@ -50,8 +49,8 @@ const Square = (props) => {
     return (
         <TouchableOpacity onPress={moleActive? props.addScore : null}>
             <Image 
-            source={moleActive? { addMole } : require('../assets/hole.png')} 
-            style={moleActive? styles.mole : styles.square}>
+            source={moleActive ? mole : require('../assets/hole.png')} 
+            style={moleActive ? styles.mole : styles.square}>
             </Image>
         </TouchableOpacity>
 
@@ -83,19 +82,4 @@ const styles = StyleSheet.create({
     }
 })
 
-const mapStateToProps = state => {
-    return {
-        score: state.score,
-        mole: state.mole
-
-    }
-}
-
-const mapDispatchToProps = dispatch => {
-    return {
-        addScore: () => dispatch(addScore()),
-        addMole: () => dispatch(addMole())
-    }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Square)
+export default Square

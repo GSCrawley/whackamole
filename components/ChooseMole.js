@@ -1,10 +1,8 @@
-import React, {useEffect, useState, Component } from 'react' 
+import React from 'react' 
 import { View, Image, StyleSheet } from 'react-native';
-import { SafeAreaProvider } from 'react-native-safe-area-context';
-// import { navigation } from '@react-navigation/native';
-import { addMole } from './../redux'
-// import { connect, mapStateToProps } from 'react-redux'
-import rootReducer from '../redux/rootReducer'
+
+import { addMole } from './../redux';
+
 
 
 const styles = StyleSheet.create({
@@ -67,7 +65,7 @@ const moles = {
     },  
   }
 
-function ChooseMole() {
+const ChooseMole = (route) => {
     const mole = useSelector(state => state.mole)
     const dispatch = useDispatch()
 
@@ -82,23 +80,25 @@ function ChooseMole() {
       `<View style={styles.container}>
         <Image 
           source={Gid.source}>
-        <button onClick={() => dispatch(addMole(Gid.game))}>Gideon</button></Image>
+        <button onClick={() => dispatch(addMole(moles.Gid.game))}>Gideon</button></Image>
         <Image
           source={Trump.source}>
-        <button onlick={() => dispatch(addMole(Trump.game))}>Trump</button></Image>
+        <button onlick={() => dispatch(addMole(moles.Trump.game))}>Trump</button></Image>
         <Image
           source={Mitch.source}>
-        <button onlick={() => dispatch(addMole(Mitch.game))}>McConnel</button></Image>
+        <button onlick={() => dispatch(addMole(moles.Mitch.game))}>McConnel</button></Image>
         <Image
           source={Matt.source}>
-        <button onlick={() => dispatch(addMole(Matt.game))}>Gaetz</button></Image>
+        <button onlick={() => dispatch(addMole(moles.Matt.game))}>Gaetz</button></Image>
         <Image
           source={Rudy.source}>
-        <button onlick={() => dispatch(addMole(Rudy.game))}>Rudy</button></Image>
+        <button onlick={() => dispatch(addMole(moles.Rudy.game))}>Rudy</button></Image>
 
     </View>
     </ImageBackground>
     );
-    }
+  }
 
-export default ChooseMole
+
+
+export default ChooseMole 

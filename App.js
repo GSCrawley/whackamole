@@ -1,13 +1,13 @@
-import React from 'react';
+import * as React from 'react';
 import GameBoard from './components/GameBoard';
 import ChooseMole from './components/ChooseMole';
 import { createBottomTabNavigator } from 'react-navigation-tabs';
 import { NavigationContainer } from '@react-navigation/native';
 import 'react-native-gesture-handler';
+import { Text } from 'react-native'
+import { Ionicon } from  'react-native-vector-icons';
 
-import { ionIcon } from  'react-native-vector-icons';
-
-const Tab = createBottomTabNavigator
+const Tab = createBottomTabNavigator();
 
 export default function App() {
   return (
@@ -23,13 +23,14 @@ export default function App() {
               iconName = focused
               ? 'body-outline' : 'body'
             }
-            return <ionIcon name={iconName} size={size} color={color} />;
+            return <Ionicon name={iconName} size={size} color={color} />;
           },
         })}
-      > 
+    >
         <Tab.Screen name="Home" component={GameBoard} />
         <Tab.Screen name="Moles" component={ChooseMole} />
-
+        {/* <Tab.Screen name="Home" component={<Text>Hello World</Text>} />
+        <Tab.Screen name="Moles" component={<Text>Hello</Text>} /> */}
       </Tab.Navigator>
     </NavigationContainer>
   );
